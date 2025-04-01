@@ -560,13 +560,16 @@ nav {
 }
 
 .contact-content {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
+  display: flex;
+  justify-content: center;
   gap: 50px;
-  margin-top: 50px;
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .contact-info, .contact-form {
+  flex: 1;
+  max-width: 500px;
   padding: 30px;
   background: rgba(255, 255, 255, 0.05);
   border-radius: 15px;
@@ -687,4 +690,36 @@ nav {
   .contact-form {
     padding: 20px;
   }
+}
+
+.projects-cta {
+  text-align: center;
+  margin-top: 40px;
+}
+
+.projects-cta .btn {
+  margin-top: 20px;
+}
+
+.contact-cta {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.contact-cta .btn {
+  margin-top: 10px;
+}
+
+.contact-cta .btn-primary {
+  background-color: #333333;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.contact-cta .btn-primary:hover {
+  background-color: #444444;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
