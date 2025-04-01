@@ -25,11 +25,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Header scroll effect
     const header = document.querySelector('header');
+    
+    // Check if this is the contact page and add scrolled class immediately if it is
+    if (document.body.classList.contains('contact-page')) {
+        header.classList.add('scrolled');
+    }
+    
     window.addEventListener('scroll', function() {
         if (window.scrollY > 50) {
             header.classList.add('scrolled');
         } else {
-            header.classList.remove('scrolled');
+            // Only remove the scrolled class if not on contact page
+            if (!document.body.classList.contains('contact-page')) {
+                header.classList.remove('scrolled');
+            }
         }
     });
 
