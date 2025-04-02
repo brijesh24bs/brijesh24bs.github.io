@@ -73,13 +73,6 @@ document.addEventListener('DOMContentLoaded', function() {
         fetchGitHubRepos(username);
     }
 
-    // Project filtering
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    // Initialize filter buttons if they exist
-    if (filterBtns.length > 0) {
-        setupProjectFilters();
-    }
-
     // Contact form submission
     const contactForm = document.getElementById('contactForm');
     
@@ -151,32 +144,6 @@ function getProjectCategory(repo) {
     }
 }
 
-// Function to setup project filtering
-function setupProjectFilters() {
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    const projectItems = document.querySelectorAll('.project-item');
-    
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            // Remove active class from all buttons
-            filterBtns.forEach(btn => btn.classList.remove('active'));
-            
-            // Add active class to clicked button
-            this.classList.add('active');
-            
-            const filterValue = this.getAttribute('data-filter');
-            
-            projectItems.forEach(item => {
-                if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                    item.style.display = 'block';
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-        });
-    });
-}
-
 // Function to display GitHub repositories in the projects grid
 function displayGitHubRepos(repos, username) {
     const projectsGrid = document.querySelector('.projects-grid');
@@ -226,9 +193,6 @@ function displayGitHubRepos(repos, username) {
         
         projectsGrid.appendChild(projectItem);
     });
-    
-    // Initialize project filtering
-    setupProjectFilters();
     
     // Add GitHub profile link to CTA button
     const projectsCta = document.querySelector('.projects-cta a');

@@ -400,30 +400,6 @@ nav {
 }
 
 /* Projects Section */
-.filter-buttons {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 40px;
-  flex-wrap: wrap;
-  gap: 10px;
-}
-
-.filter-btn {
-  background-color: transparent;
-  border: none;
-  padding: 8px 15px;
-  margin: 0 5px 15px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: var(--transition);
-  color: var(--text-color);
-}
-
-.filter-btn:hover, .filter-btn.active {
-  color: #333333;
-  background-color: #ffffff;
-}
-
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -694,20 +670,45 @@ nav {
 
 .projects-cta {
   text-align: center;
-  margin-top: 40px;
+  margin-top: 60px;
+  padding: 20px 0;
 }
 
 .projects-cta .btn {
   margin-top: 20px;
+  transition: var(--transition);
+}
+
+.projects-cta .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .contact-cta {
+  background-color: var(--darker-color);
+  padding: 100px 0;
   text-align: center;
-  margin-top: 10px;
+  margin-top: 40px;
+}
+
+.contact-cta h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.contact-cta p {
+  font-size: 18px;
+  margin-bottom: 30px;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .contact-cta .btn {
-  margin-top: 10px;
+  margin-top: 20px;
+  transition: var(--transition);
 }
 
 .contact-cta .btn-primary {
@@ -716,10 +717,40 @@ nav {
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  padding: 15px 40px;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .contact-cta .btn-primary:hover {
   background-color: #444444;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer */
+footer {
+  background-color: var(--darker-color);
+  padding: 40px 0;
+}
+
+.footer-content {
+  text-align: center;
+}
+
+.copyright {
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.copyright p {
+  margin-bottom: 10px;
+}
+
+.copyright a {
+  color: #fff;
+  transition: var(--transition);
+}
+
+.copyright a:hover {
+  color: #cccccc;
 }
