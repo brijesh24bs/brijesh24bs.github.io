@@ -16,10 +16,12 @@ document.addEventListener('DOMContentLoaded', function() {
             const targetId = this.getAttribute('href');
             const targetSection = document.querySelector(targetId);
             
-            window.scrollTo({
-                top: targetSection.offsetTop,
-                behavior: 'smooth'
-            });
+            if (targetSection) {
+                window.scrollTo({
+                    top: targetSection.offsetTop - 80, // Adjust for header height
+                    behavior: 'smooth'
+                });
+            }
         });
     });
 
@@ -40,23 +42,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 header.classList.remove('scrolled');
             }
         }
-    });
-
-    // Mobile menu toggle
-    const menuBtn = document.querySelector('.menu-btn');
-    const navItems = document.querySelector('.nav-items');
-    
-    menuBtn.addEventListener('click', function() {
-        menuBtn.classList.toggle('open');
-        navItems.classList.toggle('active');
-    });
-
-    // Close mobile menu when clicking on a link
-    document.querySelectorAll('.nav-link').forEach(link => {
-        link.addEventListener('click', function() {
-            menuBtn.classList.remove('open');
-            navItems.classList.remove('active');
-        });
     });
 
     // Fetch GitHub repositories
@@ -103,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Function to fetch GitHub repositories
 async function fetchGitHubRepos(username) {
     try {
-        const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=10`);
+        const response = await fetch(`https://api.github.com/users/${username}/repos?sort=updated&per_page=5`);
         
         if (!response.ok) {
             if (response.status === 403) {
