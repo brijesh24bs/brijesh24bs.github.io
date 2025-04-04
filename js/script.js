@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Smooth scrolling for navigation links
-    document.querySelectorAll('.nav-link, .scroll-down a, .back-to-top a').forEach(link => {
+    document.querySelectorAll('.nav-link, .scroll-down a').forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (targetSection) {
                 window.scrollTo({
-                    top: targetSection.offsetTop - 80, // Adjust for header height
+                    top: targetSection.offsetTop + 50, // Adjust for header height
                     behavior: 'smooth'
                 });
             }
