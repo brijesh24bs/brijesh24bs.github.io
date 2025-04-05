@@ -9,18 +9,28 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Smooth scrolling for navigation links
-    document.querySelectorAll('.nav-link, .scroll-down a').forEach(link => {
+    // Select all anchor links starting with '#' but not just '#'
+    document.querySelectorAll('a[href^="#"]:not([href="#"])').forEach(link => {
         link.addEventListener('click', function(e) {
             e.preventDefault();
             
             const targetId = this.getAttribute('href');
-            const targetSection = document.querySelector(targetId);
-            
-            if (targetSection) {
-                window.scrollTo({
-                    top: targetSection.offsetTop + 50, // Adjust for header height
-                    behavior: 'smooth'
-                });
+            // Use try...catch for robustness if the target doesn't exist
+            try {
+                const targetSection = document.querySelector(targetId);
+                
+                if (targetSection) {
+                    const headerOffset = document.querySelector('header') ? document.querySelector('header').offsetHeight : 50; // Get header height or default
+                    const elementPosition = targetSection.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition, 
+                        behavior: 'smooth'
+                    });
+                }
+            } catch (error) {
+                console.error("Error finding target element for smooth scroll:", targetId, error);
             }
         });
     });
@@ -81,6 +91,34 @@ document.addEventListener('DOMContentLoaded', function() {
             // For now, let's just show a success message
             alert('Thanks for your message! I will get back to you soon.');
             contactForm.reset();
+        });
+    }
+
+    // Intersection Observer for scroll animations
+    const animatedElements = document.querySelectorAll('.animate-on-scroll');
+    
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target); // Optional: Stop observing once visible
+                }
+            });
+        }, { 
+            threshold: 0.1 // Trigger when 10% of the element is visible
+        });
+
+        // Make observer available globally for dynamic content
+        window.projectObserver = observer;
+
+        animatedElements.forEach(el => {
+            observer.observe(el);
+        });
+    } else {
+        // Fallback for browsers that don't support Intersection Observer
+        animatedElements.forEach(el => {
+            el.classList.add('visible'); 
         });
     }
 });
@@ -152,6 +190,9 @@ function displayGitHubRepos(repos, username) {
         projectItem.className = 'project-item';
         projectItem.setAttribute('data-category', category);
         
+        // Add animation class initially
+        projectItem.classList.add('animate-on-scroll');
+
         projectItem.innerHTML = `
             <div class="project-img">
                 <div class="project-thumbnail">
@@ -179,6 +220,12 @@ function displayGitHubRepos(repos, username) {
         projectsGrid.appendChild(projectItem);
     });
     
+    // Re-observe newly added elements if Intersection Observer exists
+    if ('IntersectionObserver' in window && window.projectObserver) {
+        const newItems = projectsGrid.querySelectorAll('.animate-on-scroll');
+        newItems.forEach(item => window.projectObserver.observe(item));
+    }
+
     // Add GitHub profile link to CTA button
     const projectsCta = document.querySelector('.projects-cta a');
     if (projectsCta) {
