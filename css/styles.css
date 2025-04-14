@@ -828,10 +828,17 @@ footer {
 
   .about-content {
     text-align: center;
+    grid-template-columns: 1fr;
+    gap: 30px;
   }
 
   .about-text {
     padding: 0;
+    order: 2;
+  }
+  
+  .about-img {
+    order: 1;
   }
 
   .skills-content {
