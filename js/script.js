@@ -3,8 +3,6 @@ document.addEventListener('DOMContentLoaded', function() {
     const typed = new Typed('.typed-text', {
         strings: [
             'intelligent AI systems',
-            'machine learning models',
-            'NLP solutions',
             'LLM applications'
         ],
         typeSpeed: 70,
