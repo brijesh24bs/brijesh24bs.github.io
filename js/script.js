@@ -1,11 +1,39 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize Typed.js
     const typed = new Typed('.typed-text', {
-        strings: ['a Machine Learning Engineer', 'an AI Architect', 'an LLM Engineer'],
-        typeSpeed: 50,
-        backSpeed: 30,
+        strings: [
+            'intelligent AI systems',
+            'machine learning models',
+            'NLP solutions',
+            'LLM applications'
+        ],
+        typeSpeed: 70,
+        backSpeed: 40,
         backDelay: 2000,
-        loop: true
+        loop: true,
+        cursorChar: '|',
+        smartBackspace: true
+    });
+    
+    // Activate animations when elements come into view
+    const animateOnScroll = function() {
+        const elements = document.querySelectorAll('.fade-in-up, .fade-in-left, .fade-in-right, .fade-in');
+        
+        elements.forEach(element => {
+            const elementPosition = element.getBoundingClientRect().top;
+            const windowHeight = window.innerHeight;
+            
+            if (elementPosition < windowHeight - 100) {
+                element.classList.add('appear');
+            }
+        });
+    };
+    
+    // Activate hero section animations immediately
+    document.querySelectorAll('.hero .fade-in-up').forEach((element, index) => {
+        setTimeout(() => {
+            element.classList.add('appear');
+        }, index * 200); // Stagger the animations
     });
 
     // Smooth scrolling for navigation links
@@ -35,22 +63,44 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // Call the animation function on scroll and load
+    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('load', animateOnScroll);
+    
     // Header scroll effect
     const header = document.querySelector('header');
+    const backToTop = document.querySelector('.back-to-top');
     
-    // Check if this is the contact page and add scrolled class immediately if it is
-    if (document.body.classList.contains('contact-page')) {
-        header.classList.add('scrolled');
-    }
-    
-    window.addEventListener('scroll', function() {
-        if (window.scrollY > 50) {
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
             header.classList.add('scrolled');
+            backToTop.classList.add('show');
         } else {
-            // Only remove the scrolled class if not on contact page
-            if (!document.body.classList.contains('contact-page')) {
-                header.classList.remove('scrolled');
-            }
+            header.classList.remove('scrolled');
+            backToTop.classList.remove('show');
+        }
+    });
+    
+    // Project hover effects
+    const projectItems = document.querySelectorAll('.project-item');
+    
+    projectItems.forEach(item => {
+        item.addEventListener('mouseenter', () => {
+            item.querySelector('.project-overlay').style.opacity = '1';
+        });
+        
+        item.addEventListener('mouseleave', () => {
+            item.querySelector('.project-overlay').style.opacity = '0';
+        });
+    });
+    
+    // Add parallax effect to hero section
+    const heroSection = document.querySelector('.hero');
+    
+    window.addEventListener('scroll', () => {
+        const scrollPosition = window.scrollY;
+        if (scrollPosition < window.innerHeight) {
+            heroSection.style.backgroundPositionY = `${scrollPosition * 0.5}px`;
         }
     });
 
@@ -121,6 +171,56 @@ document.addEventListener('DOMContentLoaded', function() {
             el.classList.add('visible'); 
         });
     }
+
+    // Mobile menu toggle
+    const navToggle = document.getElementById('nav-toggle');
+    const navItems = document.getElementById('nav-items');
+    
+    if (navToggle) {
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navItems.classList.toggle('show');
+        });
+    }
+    
+    // Close mobile menu when clicking a link
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            navToggle.classList.remove('active');
+            navItems.classList.remove('show');
+            
+            // Active link highlighting
+            navLinks.forEach(navLink => navLink.classList.remove('active'));
+            link.classList.add('active');
+        });
+    });
+    
+    // Update active nav link based on scroll position
+    const sections = document.querySelectorAll('section');
+    
+    function updateActiveLink() {
+        let current = '';
+        
+        sections.forEach(section => {
+            const sectionTop = section.offsetTop;
+            const sectionHeight = section.clientHeight;
+            
+            if (window.scrollY >= (sectionTop - 100)) {
+                current = section.getAttribute('id');
+            }
+        });
+        
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${current}`) {
+                link.classList.add('active');
+            }
+        });
+    }
+    
+    window.addEventListener('scroll', updateActiveLink);
 });
 
 // Function to fetch GitHub repositories

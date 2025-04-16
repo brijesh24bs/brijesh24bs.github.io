@@ -5,10 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brijesh | Portfolio</title>
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <link rel="stylesheet" href="css/particles.css">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600&display=swap" rel="stylesheet">
     <script src="js/script.js" defer></script>
 </head>
 <body>
@@ -17,33 +20,70 @@
         <div class="container">
             <nav>
                 <div class="logo">
-                    <a href="#">Brijesh</a>
+                    <a href="#"><span class="logo-highlight">&lt;</span>Brijesh<span class="logo-highlight">/&gt;</span></a>
                 </div>
+                <div class="nav-toggle" id="nav-toggle">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                <ul class="nav-items" id="nav-items">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#skills" class="nav-link">Skills</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
             </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section id="home" class="hero gradient-bg">
+        <div class="particle-container">
+            <div class="particle particle-1"></div>
+            <div class="particle particle-2"></div>
+            <div class="particle particle-3"></div>
+            <div class="particle particle-1"></div>
+            <div class="particle particle-2"></div>
+            <div class="particle particle-3"></div>
+            <div class="particle particle-1"></div>
+            <div class="particle particle-2"></div>
+            <div class="particle particle-3"></div>
+            <div class="particle particle-1"></div>
+            <div class="particle particle-2"></div>
+            <div class="particle particle-3"></div>
+            <div class="particle particle-1"></div>
+            <div class="particle particle-2"></div>
+            <div class="particle particle-3"></div>
+            <div class="particle particle-1"></div>
+            <div class="particle particle-2"></div>
+            <div class="particle particle-3"></div>
+            <div class="particle particle-1"></div>
+            <div class="particle particle-2"></div>
+        </div>
         <div class="container">
             <div class="hero-content">
-                <h1>Hi, I'm <span class="highlight">Brijesh</span></h1>
-                <h2>I'm <span class="typed-text"></span></h2>
-                <p>Machine Learning Engineer | AI Architect | LLM Engineer</p>
-                <div class="hero-btns">
-                    <a href="contact.html" class="btn btn-primary">Get In Touch</a>
+                <p class="fade-in-up hero-greeting">Hello, my name is</p>
+                <h1 class="fade-in-up">Brijesh <span class="highlight">Kumar</span></h1>
+                <h2 class="fade-in-up">I build <span class="typed-text"></span></h2>
+                <p class="fade-in-up">I'm a specialized <span class="highlight">Machine Learning Engineer</span> focused on building exceptional AI solutions and turning ideas into intelligent applications.</p>
+                <div class="hero-btns fade-in-up">
+                    <a href="contact.html" class="btn btn-primary pulse">Get In Touch</a>
                     <a href="#projects" class="btn btn-secondary">View My Work</a>
                 </div>
-                <div class="social-icons">  
-                    <a href="https://github.com/brijesh24bs" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/brijesh24bs/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://x.com/brijesh24bs" target="_blank"><i class="fab fa-twitter"></i></a>
+                <div class="social-icons fade-in-up">  
+                    <a href="https://github.com/brijesh24bs" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/brijesh24bs/" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://x.com/brijesh24bs" target="_blank" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="mailto:contact@brijesh.dev" aria-label="Email"><i class="fas fa-envelope"></i></a>
                 </div>
             </div>
         </div>
         <div class="scroll-down">
             <a href="#about"><i class="fas fa-chevron-down"></i></a>
         </div>
+        <div class="hero-shape"></div>
     </section>
 
     <!-- About Section -->
