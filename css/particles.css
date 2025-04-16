@@ -21,7 +21,7 @@
   height: 1px;
   background-color: var(--primary-color);
   box-shadow: 0 0 10px 2px var(--primary-color);
-  animation: particle-animation 60s infinite linear;
+  animation: particle-animation 30s infinite linear;
 }
 
 .particle-2 {
@@ -29,7 +29,7 @@
   height: 2px;
   background-color: var(--text-color);
   box-shadow: 0 0 8px 1px var(--text-color);
-  animation: particle-animation 75s infinite linear;
+  animation: particle-animation 35s infinite linear;
 }
 
 .particle-3 {
@@ -37,7 +37,7 @@
   height: 1.5px;
   background-color: var(--light-color);
   box-shadow: 0 0 12px 2px var(--light-color);
-  animation: particle-animation 90s infinite linear;
+  animation: particle-animation 40s infinite linear;
 }
 
 @keyframes particle-animation {
