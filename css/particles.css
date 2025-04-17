@@ -50,23 +50,23 @@
 }
 
 /* Create multiple particles */
-.particle:nth-child(1) { left: 10%; top: 20%; animation-delay: 0s; }
-.particle:nth-child(2) { left: 20%; top: 80%; animation-delay: 1s; }
-.particle:nth-child(3) { left: 30%; top: 40%; animation-delay: 3s; }
-.particle:nth-child(4) { left: 40%; top: 60%; animation-delay: 5s; }
-.particle:nth-child(5) { left: 50%; top: 30%; animation-delay: 7s; }
-.particle:nth-child(6) { left: 60%; top: 70%; animation-delay: 9s; }
-.particle:nth-child(7) { left: 70%; top: 20%; animation-delay: 11s; }
-.particle:nth-child(8) { left: 80%; top: 50%; animation-delay: 13s; }
-.particle:nth-child(9) { left: 90%; top: 90%; animation-delay: 15s; }
-.particle:nth-child(10) { left: 5%; top: 60%; animation-delay: 17s; }
-.particle:nth-child(11) { left: 15%; top: 30%; animation-delay: 19s; }
-.particle:nth-child(12) { left: 25%; top: 85%; animation-delay: 21s; }
-.particle:nth-child(13) { left: 35%; top: 15%; animation-delay: 23s; }
-.particle:nth-child(14) { left: 45%; top: 45%; animation-delay: 25s; }
-.particle:nth-child(15) { left: 55%; top: 5%; animation-delay: 27s; }
-.particle:nth-child(16) { left: 65%; top: 75%; animation-delay: 29s; }
-.particle:nth-child(17) { left: 75%; top: 35%; animation-delay: 31s; }
-.particle:nth-child(18) { left: 85%; top: 66%; animation-delay: 33s; }
-.particle:nth-child(19) { left: 95%; top: 25%; animation-delay: 35s; }
-.particle:nth-child(20) { left: 99%; top: 95%; animation-delay: 37s; }
+.particle:nth-child(1)  { left: 10%; top: 20%; animation-delay: 0s; }
+.particle:nth-child(2)  { left: 20%; top: 80%; animation-delay: 0s; }
+.particle:nth-child(3)  { left: 30%; top: 40%; animation-delay: 0s; }
+.particle:nth-child(4)  { left: 40%; top: 60%; animation-delay: 0s; }
+.particle:nth-child(5)  { left: 50%; top: 30%; animation-delay: 0s; }
+.particle:nth-child(6)  { left: 60%; top: 70%; animation-delay: 0s; }
+.particle:nth-child(7)  { left: 70%; top: 20%; animation-delay: 0s; }
+.particle:nth-child(8)  { left: 80%; top: 50%; animation-delay: 0s; }
+.particle:nth-child(9)  { left: 90%; top: 90%; animation-delay: 0s; }
+.particle:nth-child(10) { left: 5%;  top: 60%; animation-delay: 0s; }
+.particle:nth-child(11) { left: 15%; top: 30%; animation-delay: 0s; }
+.particle:nth-child(12) { left: 25%; top: 85%; animation-delay: 0s; }
+.particle:nth-child(13) { left: 35%; top: 15%; animation-delay: 0s; }
+.particle:nth-child(14) { left: 45%; top: 45%; animation-delay: 0s; }
+.particle:nth-child(15) { left: 55%; top: 5%;  animation-delay: 0s; }
+.particle:nth-child(16) { left: 65%; top: 75%; animation-delay: 0s; }
+.particle:nth-child(17) { left: 75%; top: 35%; animation-delay: 0s; }
+.particle:nth-child(18) { left: 85%; top: 66%; animation-delay: 0s; }
+.particle:nth-child(19) { left: 95%; top: 25%; animation-delay: 0s; }
+.particle:nth-child(20) { left: 99%; top: 95%; animation-delay: 0s; }
